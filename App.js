@@ -17,6 +17,7 @@ import {
   View,
 } from 'react-native';
 
+import SplashScreen from 'react-native-splash-screen';
 import {Colors, Header} from 'react-native/Libraries/NewAppScreen';
 
 const App = () => {
