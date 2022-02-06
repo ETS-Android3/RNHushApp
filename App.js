@@ -16,8 +16,8 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
-
 import {Colors, Header} from 'react-native/Libraries/NewAppScreen';
+import RootNavigator from './navigation/RootNavigator';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -27,19 +27,10 @@ const App = () => {
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Text>App WIP</Text>
-        </View> 
-      </ScrollView>
-    </SafeAreaView>
+    <>
+      <StatusBar hidden />
+      <RootNavigator />
+    </>
   );
 };
 
