@@ -8,17 +8,20 @@
 
 import React from 'react';
 import {
-  SafeAreaView,
+  Dimensions,
+  ImageBackground,
   ScrollView,
   StatusBar,
   StyleSheet,
   Text,
   useColorScheme,
   View,
+  SafeAreaView,
 } from 'react-native';
 import {Colors, Header} from 'react-native/Libraries/NewAppScreen';
 import RootNavigator from './navigation/RootNavigator';
 
+const {width, height} = Dimensions.get('screen');
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
@@ -27,14 +30,29 @@ const App = () => {
   };
 
   return (
-    <>
-      <StatusBar hidden />
-      <RootNavigator />
-    </>
+    <ScrollView pagingEnabled horizontal style={{width, height}}>
+      {[
+        require('./assets/images/buddhism-2214532__340.jpeg'),
+        require('./assets/images/organsmic-meditation-brain-function-neuroscineces-public.jpeg'),
+      ].map(image => (
+        <ImageBackground source={image} style={styles.imageBackground}>
+          <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+          <RootNavigator />
+        </ImageBackground>
+      ))}
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
+  imageBackground: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width,
+    height,
+  },
   sectionContainer: {
     marginTop: 32,
     paddingHorizontal: 24,
