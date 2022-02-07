@@ -41,7 +41,6 @@ const Home = () => {
               <Text style={styles.imageTitle}>{item.title}</Text>
             </View>
           ))}
-          <Text>Home screen</Text>
         </ScrollView>
       </View>
     </View>
@@ -51,7 +50,7 @@ const Home = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0f0f0f',
+    backgroundColor: 'white',
   },
   contentContainer: {
     marginTop: 50,
@@ -78,7 +77,6 @@ const styles = StyleSheet.create({
     height: ITEM_HEIGHT,
   },
   imageTitle: {
-    color: 'white',
     margin: 10,
     textAlign: 'center',
   },

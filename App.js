@@ -30,17 +30,29 @@ const App = () => {
   };
 
   return (
-    <ScrollView pagingEnabled horizontal style={{width, height}}>
-      {[
-        require('./assets/images/buddhism-2214532__340.jpeg'),
-        require('./assets/images/organsmic-meditation-brain-function-neuroscineces-public.jpeg'),
-      ].map(image => (
-        <ImageBackground source={image} style={styles.imageBackground}>
-          <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-          <RootNavigator />
-        </ImageBackground>
-      ))}
-    </ScrollView>
+    // <ScrollView pagingEnabled horizontal style={{width, height}}>
+    //   {[
+    //     require('./assets/images/buddhism-2214532__340.jpeg'),
+    //     require('./assets/images/organsmic-meditation-brain-function-neuroscineces-public.jpeg'),
+    //   ].map(image => (
+    //     <ImageBackground source={image} style={styles.imageBackground}>
+    //       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+    //       <RootNavigator />
+    //     </ImageBackground>
+    //   ))}
+    // </ScrollView>
+
+    // <ImageBackground
+    //   source={require('./assets/images/buddhism-2214532__340.jpeg')}
+    //   style={styles.imageBackground}>
+    //   <Text style={{fontSize: 100}}>Test</Text>
+    //   <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+    //   <RootNavigator />
+    // </ImageBackground>
+    <>
+      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+      <RootNavigator />
+    </>
   );
 };
 
