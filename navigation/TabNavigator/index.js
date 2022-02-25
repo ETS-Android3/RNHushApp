@@ -38,7 +38,7 @@ const TabNavigator = () => {
         tabBarIcon: ({color}) => screenOptions(route, color),
         headerShown: false,
         tabBarStyle: {
-          backgroundColor: 'transparent',
+          backgroundColor: '#87ceeb',
           borderTopColor: '#666666',
         },
         // activeTintColor: 'white',

@@ -27,6 +27,7 @@ const Home = () => {
       <View style={styles.scrollContainer}>
         <ScrollView
           indicatorStyle="white"
+          horizontal
           contentContainerStyle={[
             styles.scrollContentContainer,
             {paddingBottom: tabBarHeight},
@@ -41,7 +42,6 @@ const Home = () => {
               <Text style={styles.imageTitle}>{item.title}</Text>
             </View>
           ))}
-          <Text>Home screen</Text>
         </ScrollView>
       </View>
     </View>
@@ -51,7 +51,7 @@ const Home = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0f0f0f',
+    backgroundColor: '#87ceeb',
   },
   contentContainer: {
     marginTop: 50,
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   imageContainer: {
-    marginBottom: 14,
+    margin: 10,
   },
   imageCard: {
     borderRadius: 14,

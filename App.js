@@ -14,7 +14,7 @@ import {
   StyleSheet,
   Text,
   useColorScheme,
-  View,
+  LogBox,
 } from 'react-native';
 import {Colors, Header} from 'react-native/Libraries/NewAppScreen';
 import RootNavigator from './navigation/RootNavigator';
@@ -22,13 +22,17 @@ import RootNavigator from './navigation/RootNavigator';
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
+  LogBox.ignoreLogs([
+    "[react-native-gesture-handler] Seems like you\'re using an old API with gesture components, check out new Gestures system!",
+  ]);
+
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
   return (
     <>
-      <StatusBar hidden />
+      <StatusBar />
       <RootNavigator />
     </>
   );
