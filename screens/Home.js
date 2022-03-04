@@ -123,6 +123,7 @@ const styles = StyleSheet.create({
   },
   videoContainer: {
     flex: 1,
+    margin: 10,
   },
   videoStyle: {
     top: 0,

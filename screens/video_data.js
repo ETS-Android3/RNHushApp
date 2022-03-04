@@ -1,12 +1,5 @@
 export const videoData = [
   {
-    id: '3',
-    title: 'Sample File 3',
-    description: 'File 3 video',
-    video_url: require('../assets/videos/sample-mp4-file.mp4'),
-    external: false,
-  },
-  {
     id: '1',
     title: 'Sample File 1',
     description: 'File 1 video',
@@ -17,6 +10,13 @@ export const videoData = [
     id: '2',
     title: 'Sample File 2',
     description: 'File 2 video',
+    video_url: require('../assets/videos/sample-mp4-file.mp4'),
+    external: false,
+  },
+  {
+    id: '3',
+    title: 'Sample File 3',
+    description: 'File 3 video',
     video_url: require('../assets/videos/sample-mp4-file.mp4'),
     external: false,
   },
