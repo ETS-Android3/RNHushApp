@@ -8,7 +8,10 @@ import {
 } from 'react-native';
 import React from 'react';
 
+import Video from 'react-native-video';
+
 import {data} from './data';
+import {videoData} from './video_data';
 import {useBottomTabBarHeight} from '@react-navigation/bottom-tabs';
 
 const {width} = Dimensions.get('screen');
@@ -24,26 +27,62 @@ const Home = () => {
         <Text style={styles.title}>Home</Text>
       </View>
 
-      <View style={styles.scrollContainer}>
-        <ScrollView
-          indicatorStyle="white"
-          horizontal
-          contentContainerStyle={[
-            styles.scrollContentContainer,
-            {paddingBottom: tabBarHeight},
-          ]}>
-          {data.map(item => (
-            <View key={item.id} style={styles.imageContainer}>
-              <Image
-                style={styles.imageCard}
-                source={{uri: item.image_url}}
-                resizeMode="cover"
-              />
-              <Text style={styles.imageTitle}>{item.title}</Text>
-            </View>
-          ))}
-        </ScrollView>
-      </View>
+      <ScrollView>
+        <View style={styles.scrollContainer}>
+          <ScrollView
+            showsHorizontalScrollIndicator={false}
+            indicatorStyle="white"
+            horizontal
+            contentContainerStyle={[
+              styles.scrollContentContainer,
+              {paddingBottom: tabBarHeight},
+            ]}>
+            {data.map(item => (
+              <View key={item.id} style={styles.imageContainer}>
+                <Image
+                  style={styles.imageCard}
+                  source={{uri: item.image_url}}
+                  resizeMode="cover"
+                />
+                <Text style={styles.imageTitle}>{item.title}</Text>
+              </View>
+            ))}
+          </ScrollView>
+        </View>
+        <View style={styles.scrollContainer}>
+          <View>
+            <Text style={styles.videoHeader}> Videos</Text>
+          </View>
+          <ScrollView
+            showsHorizontalScrollIndicator={false}
+            indicatorStyle="white"
+            horizontal
+            contentContainerStyle={[
+              styles.scrollContentContainer,
+              {paddingBottom: tabBarHeight},
+            ]}>
+            {videoData.map(item => {
+              console.log('video source  ', item.video_url);
+              return (
+                <View key={item.id} style={styles.videoContainer}>
+                  <Video
+                    // source={require('../assets/videos/sample-mp4-file.mp4')}
+                    source={
+                      item.external
+                        ? {uri: 'https://www.w3schools.com/html/mov_bbb.mp4'}
+                        : item.video_url
+                    }
+                    controls
+                    paused
+                    style={styles.videoStyle}
+                  />
+                  <Text style={styles.imageTitle}>{item.title}</Text>
+                </View>
+              );
+            })}
+          </ScrollView>
+        </View>
+      </ScrollView>
     </View>
   );
 };
@@ -81,6 +120,17 @@ const styles = StyleSheet.create({
     color: 'white',
     margin: 10,
     textAlign: 'center',
+  },
+  videoContainer: {
+    flex: 1,
+  },
+  videoStyle: {
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
+    height: 200,
+    width: 200,
   },
 });
 
